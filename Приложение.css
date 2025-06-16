@@ -1,0 +1,237 @@
+.u-section-1 .u-sheet-1 {
+  min-height: 871px;
+}
+
+.u-section-1 .u-text-1 {
+  --animation-custom_in-translate_x: -200px;
+  --animation-custom_in-translate_y: 0px;
+  --animation-custom_in-opacity: 0;
+  --animation-custom_in-rotate: 0deg;
+  --animation-custom_in-scale: 1;
+  margin: 53px 630px 0 0;
+}
+
+.u-section-1 .u-text-2 {
+  font-size: 1.125rem;
+  font-weight: 400;
+  margin: 20px 570px 0 0;
+}
+
+.u-section-1 .u-gallery-1 {
+  height: 375px;
+  margin: 30px 0 0;
+}
+
+.u-section-1 .u-gallery-item-1 {
+  margin-right: 10px;
+}
+
+.u-section-1 .u-over-slide-1 {
+  background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2));
+  padding: 20px;
+}
+
+.u-section-1 .u-gallery-item-2 {
+  margin-right: 10px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.u-section-1 .u-over-slide-2 {
+  background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2));
+  padding: 20px;
+}
+
+.u-section-1 .u-gallery-item-3 {
+  margin-right: 10px;
+}
+
+.u-section-1 .u-over-slide-3 {
+  background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2));
+  padding: 20px;
+}
+
+.u-section-1 .u-gallery-item-4 {
+  margin-right: 10px;
+}
+
+.u-section-1 .u-over-slide-4 {
+  background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2));
+  padding: 20px;
+}
+
+.u-section-1 .u-gallery-item-5 {
+  margin-right: 10px;
+}
+
+.u-section-1 .u-over-slide-5 {
+  background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2));
+  padding: 20px;
+}
+
+.u-section-1 .u-gallery-nav-1 {
+  position: absolute;
+  left: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+.u-section-1 .u-gallery-nav-2 {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  left: auto;
+  top: 168px;
+  right: 10px;
+}
+
+.u-section-1 .u-group-1 {
+  width: 480px;
+  --radius: 20px;
+  height: auto;
+  box-shadow: -2px 0px 8px 0px rgba(133,142,153,1);
+  min-height: 90px;
+  margin: 37px auto 45px 30px;
+}
+
+.u-section-1 .u-container-layout-1 {
+  padding: 16px;
+}
+
+.u-section-1 .u-image-1 {
+  width: 200px;
+  height: 59px;
+  margin: 0 0 0 228px;
+}
+
+.u-section-1 .u-image-2 {
+  width: 200px;
+  height: 59px;
+  margin: -59px auto 0 0;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-text-1 {
+    margin-right: 430px;
+  }
+
+  .u-section-1 .u-text-2 {
+    margin-right: 370px;
+  }
+
+  .u-section-1 .u-gallery-1 {
+    margin-right: initial;
+    margin-left: initial;
+  }
+
+  .u-section-1 .u-group-1 {
+    height: auto;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-1 .u-text-1 {
+    margin-right: 210px;
+  }
+
+  .u-section-1 .u-text-2 {
+    margin-right: 150px;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-text-1 {
+    margin-right: 30px;
+  }
+
+  .u-section-1 .u-text-2 {
+    font-size: 1rem;
+    margin-right: 0;
+  }
+
+  .u-section-1 .u-container-layout-1 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 921px;
+  }
+
+  .u-section-1 .u-text-1 {
+    margin-right: 0;
+  }
+
+  .u-section-1 .u-group-1 {
+    min-height: 163px;
+    width: 246px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: auto;
+  }
+
+  .u-section-1 .u-container-layout-1 {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .u-section-1 .u-image-1 {
+    margin-top: 91px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .u-section-1 .u-image-2 {
+    margin-top: -134px;
+    margin-left: auto;
+  }
+}
+
+
+
+.u-section-1 .u-group-1 {
+  width: 246px;
+  --radius: 20px;
+  height: auto;
+  box-shadow: -2px 0px 8px 0px rgba(133,142,153,1);
+  min-height: 240px; /* Изменено для вертикального расположения */
+  margin: 37px auto 45px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.u-section-1 .u-container-layout-1 {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px; /* Отступ между изображениями */
+}
+
+.u-section-1 .image-app-gallery,
+.u-section-1 .image-rustore,
+.u-section-1 .image-windows {
+  width: 200px;
+  height: 59px;
+  margin: 0; /* Убираем все отступы */
+  cursor: pointer; /* Добавляем курсор указателя для ссылок */
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-group-1 {
+    min-height: 280px; /* Увеличиваем минимальную высоту для мобильных устройств */
+    width: 200px; /* Уменьшаем ширину для лучшего отображения */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .u-section-1 .image-app-gallery,
+  .u-section-1 .image-rustore,
+  .u-section-1 .image-windows {
+    width: 100%; /* Занимает всю ширину контейнера */
+    height: auto; /* Автоматическая высота */
+  }
+}
