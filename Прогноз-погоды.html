@@ -72,110 +72,114 @@
       <div class="u-clearfix u-sheet u-sheet-1"></div>
     </section>
     
-    <section class="hero is-small">
-  <div class="hero-body">
-    <!--Это форма получаем прогноз!-->
-
-    <div class="form field has-addons has-addons-centered">
-      <div>
-        <input class="input is-normal is-rounded " type="text" placeholder="Введите город..." id="cityadd">
-      </div>
-      <div>
-        <span class="icon">
-          <button class="button is-info is-rounded fa-solid fa-magnifying-glass" type="submit" value="" id="add">Поиск</button>
-        </span>
+<section class="weather-section">
+	<!-- Форма поиска -->
+	<div class="weather-search">
+	<input type="text" class="weather-search__input" placeholder="Введите город..." id="cityadd">
+	<button class="weather-search__button" id="add">
+	<i class="fas fa-search"></i> Поиск
+	</button>
+	</div>
+    </div>
+	    
+   <!-- Текущая погода -->
+  <div class="current-weather">
+    <div class="current-weather__header">
+      <div class="current-weather__location">
+        <h1 class="current-weather__city" id="city"></h1>
+        <p class="current-weather__address" id="address"></p>
       </div>
     </div>
-    <div class="core">
-      <!--текущий прогноз вывод данных-->
-      <div class="header">
-        <h2 class="header-title" id="city"></h2>
-        <h5 class="header-title" id="address"></h5>
-        <div class="nbr">
-          <div style="float: left; margin-top: -5%;" id="icon"></div>
-          <p>
-            <strong style="float: left;" id="temp"></strong>
-          </p>
-        </div>
+    
+    <div class="current-weather__main">
+      <div class="current-weather__icon" id="icon"></div>
+      <div>
+        <p class="current-weather__temp" id="temp"></p>
       </div>
-
-      <div class="container">
-        <p style="text-align:left;">
-          <strong id="time"></strong>
-        </p>
-        <p style="text-align:left;">
-          <strong style="text-align:right;" id="time2"></strong>
-        </p>
-        <p style="text-align:left;">
-          <strong id="time3"></strong>
-        </p>
-        <p style="text-align:left;">
-          <strong id="wind"></strong>
-        </p>
-        <p style="text-align:left;">
-          <strong id="precip"></strong>
-        </p>
-      </div>
-
-      <!--Прогноз 3 дня вывод данных-->
-      <h3>Прогноз погоды на 3 дня</h3>
-      <table class="table_with_text_on_center">
-        <tr>
-          <th>Сегодня</th>
-          <th>Завтра</th>
-          <th>Послезавтра</th>
-        </tr>
-        <tr>
-          <td id="time4"></td>
-          <td id="time5"></td>
-          <td id="time6"></td>
-        </tr>
-        <tr>
-          <td id="icon2"></td>
-          <td id="icon3"></td>
-          <td id="icon4"></td>
-        </tr>
-        <tr>
-          <td id="temp2"></td>
-          <td id="temp3"></td>
-          <td id="temp4"></td>
-        </tr>
-        <tr>
-          <td id="temp5"></td>
-          <td id="temp6"></td>
-          <td id="temp7"></td>
-        </tr>
-      </table>
-      <!--Про истории 3 дня вывод данных-->
-      <h3>Архив погоды за последние 3 дня</h3>
-      <table class="table_with_text_on_center2">
-        <tr>
-          <th>Вчера</th>
-          <th>Позавчера</th>
-          <th>3 дня</th>
-        </tr>
-        <tr>
-          <td id="timeh1"></td>
-          <td id="timeh2"></td>
-          <td id="timeh3"></td>
-        </tr>
-        <tr>
-          <td id="iconh1"></td>
-          <td id="iconh2"></td>
-          <td id="iconh3"></td>
-        </tr>
-        <tr>
-          <td id="temph1"></td>
-          <td id="temph2"></td>
-          <td id="temph3"></td>
-        </tr>
-        <tr>
-          <td id="temph4"></td>
-          <td id="temph5"></td>
-          <td id="temph6"></td>
-        </tr>
-      </table>
     </div>
+    
+    <div class="current-weather__details">
+      <div class="weather-detail">
+        <p class="weather-detail__label">Дата и время</p>
+        <p class="weather-detail__value" id="time"></p>
+      </div>
+      <div class="weather-detail">
+        <p class="weather-detail__label">Ветер</p>
+        <p class="weather-detail__value" id="wind"></p>
+      </div>
+      <div class="weather-detail">
+        <p class="weather-detail__label">Осадки</p>
+        <p class="weather-detail__value" id="precip"></p>
+      </div>
+    </div>
+  </div>
+
+      <!-- Прогноз на 3 дня -->
+  <div class="weather-forecast">
+    <h2 class="weather-forecast__title">Прогноз погоды на 3 дня</h2>
+    <div class="forecast-cards">
+      <!-- День 1 -->
+      <div class="forecast-card">
+        <p class="forecast-card__day">Сегодня</p>
+        <p class="forecast-card__date" id="time4"></p>
+        <div class="forecast-card__icon" id="icon2"></div>
+        <p class="forecast-card__temp" id="temp2"></p>
+        <p class="forecast-card__description" id="temp5"></p>
+      </div>
+      
+      <!-- День 2 -->
+      <div class="forecast-card">
+        <p class="forecast-card__day">Завтра</p>
+        <p class="forecast-card__date" id="time5"></p>
+        <div class="forecast-card__icon" id="icon3"></div>
+        <p class="forecast-card__temp" id="temp3"></p>
+        <p class="forecast-card__description" id="temp6"></p>
+      </div>
+      
+      <!-- День 3 -->
+      <div class="forecast-card">
+        <p class="forecast-card__day">Послезавтра</p>
+        <p class="forecast-card__date" id="time6"></p>
+        <div class="forecast-card__icon" id="icon4"></div>
+        <p class="forecast-card__temp" id="temp4"></p>
+        <p class="forecast-card__description" id="temp7"></p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Архив погоды -->
+  <div class="weather-forecast">
+    <h2 class="weather-forecast__title">Архив погоды за последние 3 дня</h2>
+    <div class="forecast-cards">
+      <!-- День 1 -->
+      <div class="forecast-card">
+        <p class="forecast-card__day">Вчера</p>
+        <p class="forecast-card__date" id="timeh1"></p>
+        <div class="forecast-card__icon" id="iconh1"></div>
+        <p class="forecast-card__temp" id="temph1"></p>
+        <p class="forecast-card__description" id="temph4"></p>
+      </div>
+      
+      <!-- День 2 -->
+      <div class="forecast-card">
+        <p class="forecast-card__day">Позавчера</p>
+        <p class="forecast-card__date" id="timeh2"></p>
+        <div class="forecast-card__icon" id="iconh2"></div>
+        <p class="forecast-card__temp" id="temph2"></p>
+        <p class="forecast-card__description" id="temph5"></p>
+      </div>
+      
+      <!-- День 3 -->
+      <div class="forecast-card">
+        <p class="forecast-card__day">3 дня назад</p>
+        <p class="forecast-card__date" id="timeh3"></p>
+        <div class="forecast-card__icon" id="iconh3"></div>
+        <p class="forecast-card__temp" id="temph3"></p>
+        <p class="forecast-card__description" id="temph6"></p>
+      </div>
+    </div>
+  </div>
+</section>
     
     <footer class="u-align-center-md u-align-center-sm u-align-center-xs u-clearfix u-footer u-grey-80" id="sec-13d5"><div class="u-clearfix u-sheet u-sheet-1">
         <a href="#" class="u-image u-logo u-image-1" data-image-width="64" data-image-height="38">
