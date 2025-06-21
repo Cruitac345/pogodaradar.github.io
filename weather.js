@@ -1,94 +1,130 @@
 var inputval = document.querySelector('#cityadd');
 var btn = document.querySelector('#add');
 var city = document.querySelector('#city');
+var address = document.querySelector('#address');
 var temp = document.querySelector('#temp');
 var wind = document.querySelector('#wind');
 var icon = document.querySelector('#icon');
 var precip = document.querySelector('#precip');
+var time = document.querySelector('#time');
 
+// Элементы для текущей погоды
 var icon2 = document.querySelector('#icon2');
 var icon3 = document.querySelector('#icon3');
 var icon4 = document.querySelector('#icon4');
 
+// Элементы для прогноза на 3 дня
+var time4 = document.querySelector('#time4');
+var time5 = document.querySelector('#time5');
+var time6 = document.querySelector('#time6');
+var temp2 = document.querySelector('#temp2');
+var temp3 = document.querySelector('#temp3');
+var temp4 = document.querySelector('#temp4');
+var temp5 = document.querySelector('#temp5');
+var temp6 = document.querySelector('#temp6');
+var temp7 = document.querySelector('#temp7');
+
+// Элементы для ветра и осадков в прогнозе
+var wind2 = document.querySelector('#wind2');
+var wind3 = document.querySelector('#wind3');
+var wind4 = document.querySelector('#wind4');
+var precip2 = document.querySelector('#precip2');
+var precip3 = document.querySelector('#precip3');
+var precip4 = document.querySelector('#precip4');
+
 var apik = "cacfd66797d643b8bf6193226220101";
 
 btn.addEventListener('click', function () {
-  // Fetch weather data from weatherapi.com
+  if (!inputval.value) {
+    alert('Пожалуйста, введите город');
+    return;
+  }
+
   fetch(`https://api.weatherapi.com/v1/forecast.json?key=` + apik + `&q=` + inputval.value + `&days=3&aqi=yes&alerts=yes`)
-    .then(res => res.json())
-    .then(data => {
-      var nameval = data.location.name;
-      var addressval = data.location.region;
-      var tempature = Math.round(data.current.temp_c);
-      var datatime = data.current.last_updated;
-      var wndspd = data.current.wind_kph;
-      var icons = data.current.condition.icon;
-      var precips = data.current.precip_mm;
-      
-      // Determine if it's day or night for the current condition
-      var isDay = data.current.is_day === 1 ? 'day' : 'night';
-
-      // Get sunrise and sunset from forecast.json
-      var sunrise = data.forecast.forecastday[0].astro.sunrise;
-      var sunset = data.forecast.forecastday[0].astro.sunset;
-
-      // Extract other data
-      var datatime2 = data.forecast.forecastday[0].date;
-      var datatime3 = data.forecast.forecastday[1].date;
-      var datatime4 = data.forecast.forecastday[2].date;
-
-      var tempature2 = Math.round(data.forecast.forecastday[0].day.mintemp_c);
-      var tempature3 = Math.round(data.forecast.forecastday[1].day.mintemp_c);
-      var tempature4 = Math.round(data.forecast.forecastday[2].day.mintemp_c);
-      var tempature5 = Math.round(data.forecast.forecastday[0].day.maxtemp_c);
-      var tempature6 = Math.round(data.forecast.forecastday[1].day.maxtemp_c);
-      var tempature7 = Math.round(data.forecast.forecastday[2].day.maxtemp_c);
-
-      var icons2 = data.forecast.forecastday[0].day.condition.icon;
-      var icons3 = data.forecast.forecastday[1].day.condition.icon;
-      var icons4 = data.forecast.forecastday[2].day.condition.icon;
-
-      var date = new Date(datatime).toLocaleString();
-
-      var date4 = new Date(datatime2).toLocaleDateString();
-      var date5 = new Date(datatime3).toLocaleDateString();
-      var date6 = new Date(datatime4).toLocaleDateString();
-
-      // Extract the icon name from the URL
-      var getIconName = (iconUrl) => {
-        var parts = iconUrl.split('/');
-        return parts[parts.length - 1].split('.')[0]; // Get the filename without extension
-      };
-
-      // Get icons from the 'weather-icon' folder based on day/night
-      var getIcon = (iconName, isDay) => {
-        return `weather-icon/${isDay}/${iconName}.svg`;
-      };
-
-      city.innerHTML = `${nameval}`;
-      address.innerHTML = `(${addressval})`;
-      temp.innerHTML = `${tempature} &deg; C`;
-      time.innerHTML = `Время: ${date}`;
-      time2.innerHTML = `Восход: ${sunrise}`;
-      time3.innerHTML = `Закат: ${sunset}`;
-      wind.innerHTML = `Скорость ветра: <span>${wndspd} km/h</span>`;
-      icon.innerHTML = `<img width="120" height="120" src="${getIcon(getIconName(icons), isDay)}" />`;
-      precip.innerHTML = `Осадки: <span>${precips} мм</span>`;
-
-      time4.innerHTML = `${date4}`;
-      time5.innerHTML = `${date5}`;
-      time6.innerHTML = `${date6}`;
-      temp2.innerHTML = `${tempature2} &deg; C`;
-      temp3.innerHTML = `${tempature3} &deg; C`;
-      temp4.innerHTML = `${tempature4} &deg; C`;
-      temp5.innerHTML = `${tempature5} &deg; C`;
-      temp6.innerHTML = `${tempature6} &deg; C`;
-      temp7.innerHTML = `${tempature7} &deg; C`;
-
-      // For forecast days, assume day icons if dealing with 'day' conditions
-      icon2.innerHTML = `<img width="100" height="100" src="${getIcon(getIconName(icons2), 'day')}" />`;
-      icon3.innerHTML = `<img width="100" height="100" src="${getIcon(getIconName(icons3), 'day')}" />`;
-      icon4.innerHTML = `<img width="100" height="100" src="${getIcon(getIconName(icons4), 'day')}" />`;
+    .then(res => {
+      if (!res.ok) {
+        throw new Error('Город не найден или произошла ошибка сервера');
+      }
+      return res.json();
     })
-    .catch(err => alert('Ошибка получения данных о погоде: ' + err.message));
+    .then(data => {
+      // Текущая погода
+      updateCurrentWeather(data);
+      
+      // Прогноз на 3 дня
+      updateForecast(data);
+    })
+    .catch(err => {
+      alert('Ошибка: ' + err.message);
+      console.error(err);
+    });
 });
+
+function updateCurrentWeather(data) {
+  var current = data.current;
+  var location = data.location;
+  
+  city.innerHTML = location.name;
+  address.innerHTML = `${location.region}, ${location.country}`;
+  temp.innerHTML = `${Math.round(current.temp_c)}&deg;C`;
+  wind.innerHTML = `Ветер: ${current.wind_kph} км/ч, ${getWindDirection(current.wind_degree)}`;
+  precip.innerHTML = `Осадки: ${current.precip_mm} мм`;
+  time.innerHTML = new Date(current.last_updated).toLocaleString();
+  
+  // Иконка текущей погоды
+  var isDay = current.is_day ? 'day' : 'night';
+  icon.innerHTML = `<img src="${getWeatherIcon(current.condition.icon, isDay)}" alt="${current.condition.text}" />`;
+}
+
+function updateForecast(data) {
+  var forecastDays = data.forecast.forecastday;
+  
+  // Прогноз на сегодня (первый день в массиве)
+  updateForecastDay(forecastDays[0], time4, temp2, temp5, icon2, wind2, precip2, 'Сегодня');
+  
+  // Прогноз на завтра
+  updateForecastDay(forecastDays[1], time5, temp3, temp6, icon3, wind3, precip3, 'Завтра');
+  
+  // Прогноз на послезавтра
+  updateForecastDay(forecastDays[2], time6, temp4, temp7, icon4, wind4, precip4, 'Послезавтра');
+}
+
+function updateForecastDay(dayData, dateElement, minTempElement, maxTempElement, iconElement, windElement, precipElement, dayName) {
+  var date = new Date(dayData.date);
+  dateElement.innerHTML = date.toLocaleDateString('ru-RU', { 
+    weekday: 'long', 
+    day: 'numeric', 
+    month: 'long' 
+  });
+  
+  minTempElement.innerHTML = `Мин: ${Math.round(dayData.day.mintemp_c)}&deg;C`;
+  maxTempElement.innerHTML = `Макс: ${Math.round(dayData.day.maxtemp_c)}&deg;C`;
+  
+  // Средний ветер за день
+  var avgWind = Math.round(dayData.day.maxwind_kph);
+  windElement.innerHTML = `Ветер: ${avgWind} км/ч, ${getWindDirection(dayData.hour[12].wind_degree)}`;
+  
+  // Общее количество осадков за день
+  precipElement.innerHTML = `Осадки: ${dayData.day.totalprecip_mm} мм`;
+  
+  // Иконка дневной погоды
+  iconElement.innerHTML = `<img src="${getWeatherIcon(dayData.day.condition.icon, 'day')}" alt="${dayData.day.condition.text}" />`;
+}
+
+function getWeatherIcon(iconUrl, isDay) {
+  // Извлекаем код иконки из URL
+  var iconCode = iconUrl.split('/').pop().split('.')[0];
+  return `weather-icon/${isDay}/${iconCode}.svg`;
+}
+
+function getWindDirection(degree) {
+  if (degree >= 337.5 || degree < 22.5) return 'С';
+  if (degree >= 22.5 && degree < 67.5) return 'СВ';
+  if (degree >= 67.5 && degree < 112.5) return 'В';
+  if (degree >= 112.5 && degree < 157.5) return 'ЮВ';
+  if (degree >= 157.5 && degree < 202.5) return 'Ю';
+  if (degree >= 202.5 && degree < 247.5) return 'ЮЗ';
+  if (degree >= 247.5 && degree < 292.5) return 'З';
+  if (degree >= 292.5 && degree < 337.5) return 'СЗ';
+  return '';
+}
