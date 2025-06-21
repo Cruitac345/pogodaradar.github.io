@@ -23,57 +23,56 @@ var temph6 = document.querySelector('#temph6');
 
 var apik = "cacfd66797d643b8bf6193226220101";
 
-// Helper function to format dates
-function formatDate(date) {
+// Заглушка для архива
+function showHistoryPlaceholder() {
+  document.querySelector('#weather-history .forecast-cards').style.display = 'none';
+  document.querySelector('#weather-history .history-placeholder').style.display = 'block';
+}
+
+// Показать архив погоды
+function showHistoryData() {
+  document.querySelector('#weather-history .forecast-cards').style.display = 'grid';
+  document.querySelector('#weather-history .history-placeholder').style.display = 'none';
+}
+
+// Обновление архива погоды
+async function updateWeatherHistory(cityName) {
+  const today = new Date();
+  const dates = [
+    new Date(today.setDate(today.getDate() - 1)), // Вчера
+    new Date(today.setDate(today.getDate() - 1)), // Позавчера
+    new Date(today.setDate(today.getDate() - 1))  // 3 дня назад
+  ];
+
+  try {
+    showHistoryData();
+    
+    for (let i = 0; i < dates.length; i++) {
+      const date = dates[i];
+      const response = await fetch(`https://api.weatherapi.com/v1/history.json?key=${apik}&q=${cityName}&dt=${formatDateForAPI(date)}`);
+      const data = await response.json();
+      
+      const forecast = data.forecast.forecastday[0];
+      const dateStr = formatDate(date);
+      
+      document.querySelector(`#timeh${i + 1}`).textContent = dateStr;
+      document.querySelector(`#temph${i * 2 + 1}`).textContent = `Мин: ${Math.round(forecast.day.mintemp_c)}&deg;C`;
+      document.querySelector(`#temph${i * 2 + 2}`).textContent = `Макс: ${Math.round(forecast.day.maxtemp_c)}&deg;C`;
+      document.querySelector(`#windh${i + 1}`).textContent = `Ветер: ${Math.round(forecast.day.maxwind_kph)} км/ч, ${getWindDirection(forecast.hour[12].wind_degree)}`;
+      document.querySelector(`#prech${i + 1}`).textContent = `Осадки: ${forecast.day.totalprecip_mm} мм`;
+      document.querySelector(`#iconh${i + 1}`).innerHTML = 
+        `<img src="${getWeatherIcon(forecast.day.condition.icon, 'day')}" alt="${forecast.day.condition.text}" />`;
+    }
+  } catch (err) {
+    console.error('Ошибка при получении архива погоды:', err);
+    showHistoryPlaceholder();
+  }
+}
+
+// Форматирование даты для API
+function formatDateForAPI(date) {
   return date.toISOString().split('T')[0];
 }
 
-// Helper function to get the icon name from the URL
-function getIconName(iconUrl) {
-  var parts = iconUrl.split('/');
-  return parts[parts.length - 1].split('.')[0]; // Get the filename without extension
-}
-
-// Helper function to get the local icon path based on day or night
-function getIcon(iconName, isDay) {
-  return `weather-icon/${isDay}/${iconName}.svg`;
-}
-
-// Fetch weather data for a specific date
-function fetchWeatherData(date, index) {
-  fetch(`https://api.weatherapi.com/v1/history.json?key=${apik}&q=${inputval.value}&dt=${formatDate(date)}&aqi=yes&alerts=yes`)
-    .then(res => res.json())
-    .then(data => {
-      var forecast = data.forecast.forecastday[0];
-      var icon = forecast.day.condition.icon;
-      var isDay = forecast.day.condition.is_day ? 'day' : 'night';
-      var mintemp = Math.round(forecast.day.mintemp_c);
-      var maxtemp = Math.round(forecast.day.maxtemp_c);
-      var formattedDate = new Date(forecast.date).toLocaleDateString();
-
-      // Update the HTML elements with the weather data for the corresponding day
-      document.querySelector(`#timeh${index}`).innerHTML = formattedDate;
-      document.querySelector(`#temph${(index - 1) * 2 + 1}`).innerHTML = `${mintemp} &deg; C`;
-      document.querySelector(`#temph${index * 2}`).innerHTML = `${maxtemp} &deg; C`;
-      document.querySelector(`#iconh${index}`).innerHTML = `<img width="80" height="80" src="${getIcon(getIconName(icon), isDay)}" />`;
-    })
-    .catch(err => {
-      alert('Ошибка получения данных');
-    });
-}
-
-btn.addEventListener('click', function () {
-  var today = new Date();
-  
-  var day1 = new Date(today); // today
-  var day2 = new Date(today); // yesterday
-  day2.setDate(today.getDate() - 1);
-  
-  var day3 = new Date(today); // day before yesterday
-  day3.setDate(today.getDate() - 2);
-
-  // Fetch weather data for the last 3 days
-  fetchWeatherData(day1, 1);
-  fetchWeatherData(day2, 2);
-  fetchWeatherData(day3, 3);
-});
+// Показываем заглушку при загрузке
+showHistoryPlaceholder();
