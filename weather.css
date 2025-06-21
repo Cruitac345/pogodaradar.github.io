@@ -3,7 +3,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem 1rem;
-  font-family: 'Inter', 'Open Sans', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   background: transparent;
 }
 
@@ -11,54 +11,50 @@
 .weather-search {
   display: flex;
   justify-content: center;
-  margin-bottom: 3rem;
+  margin: 3rem auto 4rem;
   position: relative;
-  max-width: 600px;
-  margin: 0 auto 4rem;
+  max-width: 500px;
 }
 
 .weather-search__input {
   flex-grow: 1;
   padding: 1.2rem 1.5rem;
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  font-size: 1rem;
+  border: none;
+  border-bottom: 2px solid #e0e0e0;
+  font-size: 1.1rem;
   font-weight: 400;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
   transition: all 0.3s ease;
   outline: none;
-  background: white;
+  background: transparent;
   color: #333;
   height: 56px;
+  border-radius: 0;
 }
 
 .weather-search__input:focus {
-  border-color: #6e8efb;
-  box-shadow: 0 2px 12px rgba(110, 142, 251, 0.15);
+  border-bottom-color: #2563eb;
 }
 
 .weather-search__button {
   position: absolute;
-  right: 6px;
-  top: 6px;
-  bottom: 6px;
-  background: #2d3748;
-  color: white;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  color: #2563eb;
   border: none;
-  border-radius: 10px;
-  padding: 0 1.8rem;
+  padding: 0 1rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
 .weather-search__button:hover {
-  background: #1a202c;
-  transform: none;
+  color: #1e40af;
 }
 
 .weather-search__button i {
@@ -68,11 +64,10 @@
 /* Стили для текущей погоды */
 .current-weather {
   background: white;
-  border-radius: 16px;
-  padding: 2.5rem;
-  margin-bottom: 3rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-  border: 1px solid #f0f0f0;
+  border-radius: 0;
+  padding: 2rem 0;
+  margin-bottom: 4rem;
+  border-bottom: 1px solid #f0f0f0;
 }
 
 .current-weather__header {
@@ -87,7 +82,7 @@
 }
 
 .current-weather__city {
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   font-weight: 700;
   color: #1a202c;
   margin: 0;
@@ -95,8 +90,8 @@
 }
 
 .current-weather__address {
-  font-size: 1rem;
-  color: #718096;
+  font-size: 1.1rem;
+  color: #64748b;
   margin: 0.5rem 0 0;
   font-weight: 400;
 }
@@ -104,18 +99,17 @@
 .current-weather__main {
   display: flex;
   align-items: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 3rem;
 }
 
 .current-weather__icon {
-  width: 100px;
-  height: 100px;
-  margin-right: 2rem;
-  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.05));
+  width: 120px;
+  height: 120px;
+  margin-right: 3rem;
 }
 
 .current-weather__temp {
-  font-size: 4rem;
+  font-size: 4.5rem;
   font-weight: 700;
   color: #1a202c;
   margin: 0;
@@ -124,44 +118,47 @@
 
 .current-weather__details {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
 }
 
 .weather-detail {
-  background: #f8fafc;
-  border-radius: 12px;
-  padding: 1.5rem;
-  border: 1px solid #edf2f7;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  border-left: 3px solid #2563eb;
+  padding-left: 1.5rem;
 }
 
 .weather-detail__label {
-  font-size: 0.9rem;
-  color: #718096;
+  font-size: 1rem;
+  color: #64748b;
   margin-bottom: 0.5rem;
   font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .weather-detail__value {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: 600;
-  color: #2d3748;
+  color: #1e293b;
 }
 
 /* Стили для прогноза на несколько дней */
 .weather-forecast {
-  margin-top: 4rem;
+  margin-top: 5rem;
 }
 
 .weather-forecast__title {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: 700;
   color: #1a202c;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   text-align: left;
   position: relative;
-  padding-bottom: 0.5rem;
+  padding-bottom: 1rem;
 }
 
 .weather-forecast__title::after {
@@ -169,43 +166,43 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 60px;
-  height: 3px;
-  background: linear-gradient(90deg, #6e8efb, #a777e3);
-  border-radius: 3px;
+  width: 80px;
+  height: 4px;
+  background: #2563eb;
 }
 
 .forecast-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
 }
 
 .forecast-card {
-  background: white;
-  border-radius: 16px;
-  padding: 2rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-align: center;
-  border: 1px solid #f0f0f0;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  transition: none;
+  text-align: left;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 2rem;
 }
 
 .forecast-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transform: none;
+  box-shadow: none;
 }
 
 .forecast-card__day {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: 600;
-  color: #2d3748;
-  margin-bottom: 0.5rem;
+  color: #1e293b;
+  margin-bottom: 1rem;
 }
 
 .forecast-card__date {
-  font-size: 0.95rem;
-  color: #718096;
+  font-size: 1.1rem;
+  color: #64748b;
   margin-bottom: 1.5rem;
   font-weight: 400;
 }
@@ -213,27 +210,27 @@
 .forecast-card__icon {
   width: 80px;
   height: 80px;
-  margin: 0 auto 1.5rem;
-  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.05));
+  margin: 0 0 1.5rem;
+  filter: none;
 }
 
 .forecast-card__temp {
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 700;
   color: #1a202c;
   margin-bottom: 0.5rem;
 }
 
 .forecast-card__description {
-  font-size: 1rem;
-  color: #718096;
+  font-size: 1.1rem;
+  color: #64748b;
   font-weight: 400;
 }
 
 /* Адаптивные стили */
 @media (max-width: 768px) {
   .current-weather {
-    padding: 2rem;
+    padding: 2rem 0;
   }
   
   .current-weather__main {
@@ -243,16 +240,16 @@
   
   .current-weather__icon {
     margin-right: 0;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
   }
   
   .current-weather__temp {
-    font-size: 3.5rem;
+    font-size: 4rem;
   }
   
   .forecast-cards {
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: 1fr;
+    gap: 3rem;
   }
 }
 
@@ -261,23 +258,15 @@
     margin-bottom: 2rem;
   }
   
-  .current-weather {
-    padding: 1.5rem;
-  }
-  
   .current-weather__city {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
   
   .current-weather__details {
     grid-template-columns: 1fr;
   }
   
-  .forecast-cards {
-    grid-template-columns: 1fr;
-  }
-  
-  .forecast-card {
-    padding: 1.5rem;
+  .weather-forecast__title {
+    font-size: 1.5rem;
   }
 }
