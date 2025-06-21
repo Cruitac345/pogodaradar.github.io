@@ -61,6 +61,22 @@
   margin-right: 6px;
 }
 
+.weather-placeholder, .history-placeholder {
+  background: #f8f9fa;
+  border-radius: 12px;
+  margin: 2rem 0;
+  color: #6c757d;
+}
+
+.weather-placeholder i, .history-placeholder i {
+  margin-bottom: 1rem;
+}
+
+.weather-placeholder h3, .history-placeholder h3 {
+  color: #495057;
+  margin-bottom: 0.5rem;
+}
+
 /* Стили для текущей погоды */
 .current-weather {
   background: white;
