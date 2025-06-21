@@ -82,6 +82,13 @@
 	</button>
 	</div>
     </div>
+
+  <!-- Заглушка при отсутствии данных -->
+  <div class="weather-placeholder" style="text-align: center; padding: 2rem; display: none;">
+    <i class="fas fa-cloud" style="font-size: 3rem; color: #ccc; margin-bottom: 1rem;"></i>
+    <h3>Данные о погоде отсутствуют</h3>
+    <p>Введите название города, чтобы увидеть текущую погоду и прогноз</p>
+  </div>
 	    
    <!-- Текущая погода -->
   <div class="current-weather">
@@ -118,6 +125,14 @@
       <!-- Прогноз на 3 дня -->
   <div class="weather-forecast">
     <h2 class="weather-forecast__title">Прогноз погоды на 3 дня</h2>
+	  
+    <!-- Заглушка архива -->
+    <div class="history-placeholder" style="text-align: center; padding: 2rem; display: none;">
+      <i class="fas fa-history" style="font-size: 3rem; color: #ccc; margin-bottom: 1rem;"></i>
+      <h3>История погоды недоступна</h3>
+      <p>Введите город, чтобы увидеть архивные данные</p>
+    </div>
+	  
     <div class="forecast-cards">
       <!-- День 1 -->
     <div class="forecast-card">
