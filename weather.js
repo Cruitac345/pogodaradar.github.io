@@ -34,13 +34,28 @@ var precip4 = document.querySelector('#precip4');
 
 var apik = "cacfd66797d643b8bf6193226220101";
 
+// Показываем заглушку при загрузке страницы
+showForecastPlaceholder();
+
+// Функция для показа заглушки прогноза
+function showForecastPlaceholder() {
+  document.querySelector('.weather-forecast .forecast-cards').style.display = 'none';
+  document.querySelector('.weather-forecast .forecast-placeholder').style.display = 'block';
+}
+
+// Функция для показа данных прогноза
+function showForecastData() {
+  document.querySelector('.weather-forecast .forecast-cards').style.display = 'grid';
+  document.querySelector('.weather-forecast .forecast-placeholder').style.display = 'none';
+}
+
 btn.addEventListener('click', function () {
   if (!inputval.value) {
     alert('Пожалуйста, введите город');
     return;
   }
 
-  fetch(`https://api.weatherapi.com/v1/forecast.json?key=` + apik + `&q=` + inputval.value + `&days=3&aqi=yes&alerts=yes`)
+  fetch(`https://api.weatherapi.com/v1/forecast.json?key=${apik}&q=${inputval.value}&days=3&aqi=yes&alerts=yes&lang=ru`)
     .then(res => {
       if (!res.ok) {
         throw new Error('Город не найден или произошла ошибка сервера');
@@ -72,10 +87,10 @@ function updateCurrentWeather(data) {
   
   city.innerHTML = location.name;
   address.innerHTML = `${location.region}, ${location.country}`;
-  temp.innerHTML = `${Math.round(current.temp_c)}&deg;C`;
+  temp.innerHTML = `${Math.round(current.temp_c)}°C`;
   wind.innerHTML = `Ветер: ${current.wind_kph} км/ч, ${getWindDirection(current.wind_degree)}`;
   precip.innerHTML = `Осадки: ${current.precip_mm} мм`;
-  time.innerHTML = new Date(current.last_updated).toLocaleString();
+  time.innerHTML = new Date(current.last_updated).toLocaleString('ru-RU');
   
   // Иконка текущей погоды
   var isDay = current.is_day ? 'day' : 'night';
@@ -84,6 +99,9 @@ function updateCurrentWeather(data) {
 
 function updateForecast(data) {
   var forecastDays = data.forecast.forecastday;
+  
+  // Показываем данные прогноза
+  showForecastData();
   
   // Прогноз на сегодня (первый день в массиве)
   updateForecastDay(forecastDays[0], time4, temp2, temp5, icon2, wind2, precip2, 'Сегодня');
@@ -103,8 +121,8 @@ function updateForecastDay(dayData, dateElement, minTempElement, maxTempElement,
     month: 'long' 
   });
   
-  minTempElement.innerHTML = `Мин: ${Math.round(dayData.day.mintemp_c)}&deg;C`;
-  maxTempElement.innerHTML = `Макс: ${Math.round(dayData.day.maxtemp_c)}&deg;C`;
+  minTempElement.innerHTML = `Мин: ${Math.round(dayData.day.mintemp_c)}°C`;
+  maxTempElement.innerHTML = `Макс: ${Math.round(dayData.day.maxtemp_c)}°C`;
   
   // Средний ветер за день
   var avgWind = Math.round(dayData.day.maxwind_kph);
