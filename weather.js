@@ -53,10 +53,15 @@ btn.addEventListener('click', function () {
       
       // Прогноз на 3 дня
       updateForecast(data);
+
+      // Обновляем архив погоды
+      updateWeatherHistory(inputval.value);
     })
     .catch(err => {
       alert('Ошибка: ' + err.message);
       console.error(err);
+      // Обновляем архив погоды
+      updateWeatherHistory(inputval.value);
     });
 });
 
