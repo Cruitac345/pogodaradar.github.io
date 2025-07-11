@@ -60,8 +60,9 @@ btn.addEventListener('click', function () {
     .catch(err => {
       alert('Ошибка: ' + err.message);
       console.error(err);
-      // Обновляем архив погоды
-      updateWeatherHistory(inputval.value);
+      // Показываем заглушки при ошибке
+      showForecastPlaceholder();
+      showHistoryPlaceholder();
     });
 });
 
