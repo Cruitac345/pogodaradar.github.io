@@ -182,117 +182,44 @@
             
             <div class="history-cards">
                 <!-- День 1 -->
-                <div class="history-card">
-                    <div class="history-card__header">
-                        <h3 class="history-card__date" id="timeh1">Вчера</h3>
-                        <span class="history-card__weekday"></span>
-                    </div>
-                    
-                    <div class="history-card__content">
-                        <div class="history-card__weather">
-                            <div class="history-card__icon" id="iconh1"></div>
-                            <div class="history-card__temp">
-                                <span id="temph1"></span>
-                                <span id="temph4"></span>
-                            </div>
-                        </div>
-                        
-                        <div class="history-card__details">
-                            <div class="history-detail">
-                                <i class="fas fa-wind"></i>
-                                <span class="history-detail__value" id="windh1"></span>
-                            </div>
-                            <div class="history-detail">
-                                <i class="fas fa-tint"></i>
-                                <span class="history-detail__value" id="humidityh1"></span>
-                            </div>
-                            <div class="history-detail">
-                                <i class="fas fa-cloud-rain"></i>
-                                <span class="history-detail__value" id="prech1"></span>
-                            </div>
-                            <div class="history-detail">
-                                <i class="fas fa-tachometer-alt"></i>
-                                <span class="history-detail__value" id="pressureh1"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- День 2 -->
-                <div class="history-card">
-                    <div class="history-card__header">
-                        <h3 class="history-card__date" id="timeh2">Позавчера</h3>
-                        <span class="history-card__weekday"></span>
-                    </div>
-                    
-                    <div class="history-card__content">
-                        <div class="history-card__weather">
-                            <div class="history-card__icon" id="iconh2"></div>
-                            <div class="history-card__temp">
-                                <span id="temph2"></span>
-                                <span id="temph5"></span>
-                            </div>
-                        </div>
-                        
-                        <div class="history-card__details">
-                            <div class="history-detail">
-                                <i class="fas fa-wind"></i>
-                                <span class="history-detail__value" id="windh2"></span>
-                            </div>
-                            <div class="history-detail">
-                                <i class="fas fa-tint"></i>
-                                <span class="history-detail__value" id="humidityh2"></span>
-                            </div>
-                            <div class="history-detail">
-                                <i class="fas fa-cloud-rain"></i>
-                                <span class="history-detail__value" id="prech2"></span>
-                            </div>
-                            <div class="history-detail">
-                                <i class="fas fa-tachometer-alt"></i>
-                                <span class="history-detail__value" id="pressureh2"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- День 3 -->
-                <div class="history-card">
-                    <div class="history-card__header">
-                        <h3 class="history-card__date" id="timeh3">3 дня назад</h3>
-                        <span class="history-card__weekday"></span>
-                    </div>
-                    
-                    <div class="history-card__content">
-                        <div class="history-card__weather">
-                            <div class="history-card__icon" id="iconh3"></div>
-                            <div class="history-card__temp">
-                                <span id="temph3"></span>
-                                <span id="temph6"></span>
-                            </div>
-                        </div>
-                        
-                        <div class="history-card__details">
-                            <div class="history-detail">
-                                <i class="fas fa-wind"></i>
-                                <span class="history-detail__value" id="windh3"></span>
-                            </div>
-                            <div class="history-detail">
-                                <i class="fas fa-tint"></i>
-                                <span class="history-detail__value" id="humidityh3"></span>
-                            </div>
-                            <div class="history-detail">
-                                <i class="fas fa-cloud-rain"></i>
-                                <span class="history-detail__value" id="prech3"></span>
-                            </div>
-                            <div class="history-detail">
-                                <i class="fas fa-tachometer-alt"></i>
-                                <span class="history-detail__value" id="pressureh3"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+		<div class="forecast-card">
+		  <p class="forecast-card__day">Сегодня</p>
+		  <p class="forecast-card__date" id="time4"></p>
+		  <div class="forecast-card__icon" id="icon2"></div>
+		  
+		  <div class="forecast-details">
+		    <div class="forecast-detail">
+		      <i class="fas fa-thermometer-half"></i>
+		      <span class="forecast-detail__label">Температура:</span>
+		      <span class="forecast-detail__value" id="temp2"></span>
+		      <span class="forecast-detail__value" id="temp5"></span>
+		    </div>
+		    
+		    <div class="forecast-detail">
+		      <i class="fas fa-wind"></i>
+		      <span class="forecast-detail__label">Ветер:</span>
+		      <span class="forecast-detail__value" id="wind2"></span>
+		    </div>
+		    
+		    <div class="forecast-detail">
+		      <i class="fas fa-cloud-rain"></i>
+		      <span class="forecast-detail__label">Осадки:</span>
+		      <span class="forecast-detail__value" id="precip2"></span>
+		    </div>
+		    
+		    <div class="forecast-detail">
+		      <i class="fas fa-tint"></i>
+		      <span class="forecast-detail__label">Влажность:</span>
+		      <span class="forecast-detail__value" id="humidity2"></span>
+		    </div>
+		    
+		    <div class="forecast-detail">
+		      <i class="fas fa-tachometer-alt"></i>
+		      <span class="forecast-detail__label">Давление:</span>
+		      <span class="forecast-detail__value" id="pressure2"></span>
+		    </div>
+		  </div>
+		</div>
 </section>
     
     <footer class="u-align-center-md u-align-center-sm u-align-center-xs u-clearfix u-footer u-grey-80" id="sec-13d5"><div class="u-clearfix u-sheet u-sheet-1">
