@@ -169,58 +169,53 @@
     </div>
   </div>
   
-  <!-- Архив погоды - переработанная версия -->
+  <!-- Архив погоды - переработанный вариант -->
         <div class="weather-forecast">
             <h2 class="weather-forecast__title">Архив погоды за последние 3 дня</h2>
             
             <!-- Заглушка архива -->
             <div class="history-placeholder" style="text-align: center; padding: 2rem; display: none;">
                 <i class="fas fa-history" style="font-size: 3rem; color: #ccc; margin-bottom: 1rem;"></i>
-                <h3>История погоды</h3>
-                <p>Введите город, чтобы увидеть архивные данные о погоде</p>
+                <h3>История погоды недоступна</h3>
+                <p>Введите город, чтобы увидеть архивные данные</p>
             </div>
             
-            <div class="history-cards">
+            <div class="forecast-cards">
                 <!-- День 1 -->
-		<div class="forecast-card">
-		  <p class="forecast-card__day">Сегодня</p>
-		  <p class="forecast-card__date" id="time4"></p>
-		  <div class="forecast-card__icon" id="icon2"></div>
-		  
-		  <div class="forecast-details">
-		    <div class="forecast-detail">
-		      <i class="fas fa-thermometer-half"></i>
-		      <span class="forecast-detail__label">Температура:</span>
-		      <span class="forecast-detail__value" id="temp2"></span>
-		      <span class="forecast-detail__value" id="temp5"></span>
-		    </div>
-		    
-		    <div class="forecast-detail">
-		      <i class="fas fa-wind"></i>
-		      <span class="forecast-detail__label">Ветер:</span>
-		      <span class="forecast-detail__value" id="wind2"></span>
-		    </div>
-		    
-		    <div class="forecast-detail">
-		      <i class="fas fa-cloud-rain"></i>
-		      <span class="forecast-detail__label">Осадки:</span>
-		      <span class="forecast-detail__value" id="precip2"></span>
-		    </div>
-		    
-		    <div class="forecast-detail">
-		      <i class="fas fa-tint"></i>
-		      <span class="forecast-detail__label">Влажность:</span>
-		      <span class="forecast-detail__value" id="humidity2"></span>
-		    </div>
-		    
-		    <div class="forecast-detail">
-		      <i class="fas fa-tachometer-alt"></i>
-		      <span class="forecast-detail__label">Давление:</span>
-		      <span class="forecast-detail__value" id="pressure2"></span>
-		    </div>
-		  </div>
-		</div>
-</section>
+                <div class="forecast-card">
+                    <p class="forecast-card__day">Вчера</p>
+                    <p class="forecast-card__date" id="timeh1"></p>
+                    <div class="forecast-card__icon" id="iconh1"></div>
+                    <p class="forecast-card__temp" id="temph1"></p>
+                    <p class="forecast-card__description" id="temph4"></p>
+                    <p class="forecast-card__wind" id="windh1">Ветер: <span id="wind-speedh1"></span> м/с, <span id="wind-dirh1"></span></p>
+                    <p class="forecast-card__precip" id="prech1">Осадки: <span id="precip-amount-h1"></span> мм</p>
+                </div>
+                
+                <!-- День 2 -->
+                <div class="forecast-card">
+                    <p class="forecast-card__day">Позавчера</p>
+                    <p class="forecast-card__date" id="timeh2"></p>
+                    <div class="forecast-card__icon" id="iconh2"></div>
+                    <p class="forecast-card__temp" id="temph2"></p>
+                    <p class="forecast-card__description" id="temph5"></p>
+                    <p class="forecast-card__wind" id="windh2">Ветер: <span id="wind-speedh2"></span> м/с, <span id="wind-dirh2"></span></p>
+                    <p class="forecast-card__precip" id="prech2">Осадки: <span id="precip-amount-h2"></span> мм</p>
+                </div>
+                
+                <!-- День 3 -->
+                <div class="forecast-card">
+                    <p class="forecast-card__day">3 дня назад</p>
+                    <p class="forecast-card__date" id="timeh3"></p>
+                    <div class="forecast-card__icon" id="iconh3"></div>
+                    <p class="forecast-card__temp" id="temph3"></p>
+                    <p class="forecast-card__description" id="temph6"></p>
+                    <p class="forecast-card__wind" id="windh3">Ветер: <span id="wind-speedh3"></span> м/с, <span id="wind-dirh3"></span></p>
+                    <p class="forecast-card__precip" id="prech3">Осадки: <span id="precip-amount-h3"></span> мм</p>
+                </div>
+            </div>
+        </div>
+    </section>
     
     <footer class="u-align-center-md u-align-center-sm u-align-center-xs u-clearfix u-footer u-grey-80" id="sec-13d5"><div class="u-clearfix u-sheet u-sheet-1">
         <a href="#" class="u-image u-logo u-image-1" data-image-width="64" data-image-height="38">
