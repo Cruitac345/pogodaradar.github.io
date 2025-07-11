@@ -53,7 +53,7 @@ async function updateWeatherHistory(cityName) {
             const dateStr = dates[i].dateStr;
             const formattedDate = dates[i].formattedDate;
             
-            const response = await fetch(`https://api.weatherapi.com/v1/history.json?key=${apik}&q=${cityName}&dt=${formattedDate}`);
+            const response = await fetch(`https://api.weatherapi.com/v1/history.json?key=${apik}&q=${cityName}&dt=${formattedDate}&lang=ru`);
             
             if (!response.ok) {
                 throw new Error('Ошибка при получении данных');
