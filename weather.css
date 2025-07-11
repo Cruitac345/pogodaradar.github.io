@@ -61,29 +61,12 @@
   margin-right: 6px;
 }
 
-.weather-placeholder, .history-placeholder {
-  background: #f8f9fa;
-  border-radius: 12px;
-  margin: 2rem 0;
-  color: #6c757d;
-}
-
-.weather-placeholder i, .history-placeholder i {
-  margin-bottom: 1rem;
-}
-
-.weather-placeholder h3, .history-placeholder h3 {
-  color: #495057;
-  margin-bottom: 0.5rem;
-}
-
 /* Стили для текущей погоды */
 .current-weather {
   background: white;
   border-radius: 0;
   padding: 1.5rem 0;
   margin-bottom: 3rem;
-  border-bottom: 1px solid #f0f0f0;
 }
 
 .current-weather__header {
@@ -162,7 +145,7 @@
   color: #1e293b;
 }
 
-/* Стили для прогноза на несколько дней */
+/* Стили для прогноза и архива */
 .weather-forecast {
   margin-top: 3rem;
 }
@@ -200,7 +183,6 @@
   box-shadow: none;
   transition: none;
   text-align: left;
-  border-bottom: 1px solid #f0f0f0;
   padding-bottom: 1.5rem;
 }
 
@@ -246,126 +228,34 @@
   margin-bottom: 0.3rem;
 }
 
-/* Стили для секции архива погоды */
-#weather-history {
-  margin-top: 4rem;
-  padding-top: 3rem;
-  border-top: 1px solid #f0f0f0;
+/* Стили для заглушек */
+.forecast-placeholder,
+.history-placeholder {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  margin: 2rem 0;
+  color: #6c757d;
+  display: none; /* По умолчанию скрыты */
 }
 
-.history-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #1a202c;
-  margin-bottom: 2rem;
-  text-align: left;
-  position: relative;
-  padding-bottom: 0.8rem;
-}
-
-.history-title::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 60px;
-  height: 3px;
-  background: #4b5563;
-}
-
-.history-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
-}
-
-.history-card {
-  background: transparent;
-  border-radius: 0;
-  padding: 0;
-  box-shadow: none;
-  transition: none;
-  text-align: left;
-  border-bottom: 1px solid #f0f0f0;
-  padding-bottom: 1.5rem;
-}
-
-.history-card__day {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #1e293b;
-  margin-bottom: 0.8rem;
-}
-
-.history-card__date {
-  font-size: 0.95rem;
-  color: #64748b;
+.forecast-placeholder i,
+.history-placeholder i {
+  font-size: 3rem;
+  color: #ccc;
   margin-bottom: 1rem;
-  font-weight: 400;
 }
 
-.history-card__icon {
-  width: 50px;
-  height: 50px;
-  margin: 0 0 1rem;
-}
-
-.history-card__temp {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #1a202c;
+.forecast-placeholder h3,
+.history-placeholder h3 {
+  color: #495057;
   margin-bottom: 0.5rem;
 }
 
-.history-card__description {
-  font-size: 0.95rem;
-  color: #64748b;
-  font-weight: 400;
-  margin-bottom: 0.8rem;
-}
-
-.history-card__wind,
-.history-card__precip {
-  font-size: 0.85rem;
-  color: #64748b;
-  margin-bottom: 0.3rem;
-}
-
-/* Дополнительные стили для архива */
-.history-placeholder {
-    background: #f8f9fa;
-    border-radius: 12px;
-    padding: 2rem;
-    text-align: center;
-    margin: 2rem 0;
-    color: #6c757d;
-}
-        
-.history-placeholder i {
-    font-size: 3rem;
-    color: #ccc;
-    margin-bottom: 1rem;
-}
-        
-.history-placeholder h3 {
-    color: #495057;
-    margin-bottom: 0.5rem;
-}
-        
+.forecast-placeholder p,
 .history-placeholder p {
-    margin-bottom: 0;
-}
-
-/* Адаптивные стили для архива */
-@media (max-width: 768px) {
-  .history-cards {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  
-  .history-title {
-    font-size: 1.3rem;
-  }
+  margin-bottom: 0;
 }
 
 /* Адаптивные стили */
