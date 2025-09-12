@@ -62,14 +62,6 @@
 .u-section-1 .u-group-1 {
   all: unset;
   display: block;
-  margin: 20px auto;      /* центрируем */
-  text-align: center;     /* кнопки по центру */
-  width: auto;
-}
-
-.u-section-1 .u-group-1 {
-  all: unset;
-  display: block;
   margin: 20px 0;          /* убираем auto = центрирование */
   text-align: left;        /* выровняем влево */
   width: auto;
