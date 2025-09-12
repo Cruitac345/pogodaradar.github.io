@@ -2,18 +2,21 @@
   min-height: 871px;
 }
 
-/* Исправляем заголовок на телефонах */
+/* Заголовок */
 .u-section-1 .u-text-1 {
-  margin: 20px 0;          /* без фиксированного отступа вправо */
-  word-wrap: break-word;   /* если слова длинные — нормально переносятся */
-  white-space: normal;     /* запрещаем тексту идти в столбик */
+  margin: 20px 0 !important;   /* убираем огромные правые отступы */
+  word-wrap: break-word;       /* переносим только слова */
+  white-space: normal !important; /* запрещаем "буква в букву" */
+  display: block !important;   /* сброс weird inline-flex */
+  width: 100% !important;      /* используем всю ширину */
 }
 
-/* Текст-описание тоже исправляем */
 .u-section-1 .u-text-2 {
-  margin: 10px 0;
+  margin: 10px 0 !important;
   word-wrap: break-word;
-  white-space: normal;
+  white-space: normal !important;
+  display: block !important;
+  width: 100% !important;
 }
 
 /* Галерея */
