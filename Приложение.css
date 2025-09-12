@@ -61,12 +61,12 @@
 
 /* 🔥 КНОПКИ (iframe) */
 .u-section-1 .u-group-1 {
-  width: 100%;                 /* на всю ширину секции */
-  max-width: 400px;            /* ограничение для красоты */
-  margin: 30px auto 45px auto; /* выравнивание по центру */
-  box-shadow: 0 2px 8px rgba(133, 142, 153, 0.3);
-  border-radius: 16px;
-  padding: 10px;
+  width: 100%;
+  max-width: 260px;     /* чуть шире кнопок */
+  margin: 30px auto;
+  box-shadow: none;     /* убрал тень, не нужна "коробочка" */
+  border-radius: 0;
+  padding: 0;
   height: auto;
   display: flex;
   justify-content: center;
@@ -82,9 +82,7 @@
 /* Сам iframe с кнопками */
 .app-buttons-iframe {
   width: 100%;
-  min-height: 120px;     /* хватает на 2 кнопки */
-  height: auto;
-  border-radius: 12px;
+  min-height: 120px;
   border: none;
 }
 
