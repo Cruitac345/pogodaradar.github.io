@@ -2,21 +2,18 @@
   min-height: 871px;
 }
 
-/* Заголовок */
+/* Исправляем заголовок на телефонах */
 .u-section-1 .u-text-1 {
-  --animation-custom_in-translate_x: -200px;
-  --animation-custom_in-translate_y: 0px;
-  --animation-custom_in-opacity: 0;
-  --animation-custom_in-rotate: 0deg;
-  --animation-custom_in-scale: 1;
-  margin: 53px 630px 0 0;
+  margin: 20px 0;          /* без фиксированного отступа вправо */
+  word-wrap: break-word;   /* если слова длинные — нормально переносятся */
+  white-space: normal;     /* запрещаем тексту идти в столбик */
 }
 
-/* Подзаголовок / описание */
+/* Текст-описание тоже исправляем */
 .u-section-1 .u-text-2 {
-  font-size: 1.125rem;
-  font-weight: 400;
-  margin: 20px 570px 0 0;
+  margin: 10px 0;
+  word-wrap: break-word;
+  white-space: normal;
 }
 
 /* Галерея */
@@ -67,16 +64,20 @@
   width: auto;
 }
 
-.u-section-1 .u-container-layout-1 {
+.u-section-1 .u-group-1 {
   all: unset;
   display: block;
+  margin: 20px 0;          /* убираем auto = центрирование */
+  text-align: left;        /* выровняем влево */
+  width: auto;
 }
 
 .app-buttons-iframe {
   border: none;
   width: 100%;
-  max-width: 260px;       /* кнопки шире всё равно не будут *
+  max-width: 260px;        /* сами кнопки всё равно фиксированные */
   height: 120px;
+  display: block;
 }
 
 /* ===== МЕДИА-КВЕРИ (адаптив) ===== */
